@@ -21,7 +21,7 @@ func WriteErrorResponse(status int, err error, rw http.ResponseWriter) {
 		martErr = &api.MartError{
 			Code:        0,
 			Message:     "failed in serving request",
-			Description: martErr.Error(),
+			Description: err.Error(),
 		}
 	} else {
 		status = martErr.Code.HTTPStatus()
